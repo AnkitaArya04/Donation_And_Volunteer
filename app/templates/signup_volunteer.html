@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+
+  <section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+      <div class="card bg-dark text-white" style="border-radius: 1rem;">
+        <div class="card-body p-5 ">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        
+        <h2 class="fw-bold mb-2 text-uppercase text-center">Volunteer Sign Up</h2>
+        <p class="text-white-50 mb-2 text-center">Please enter following details</p>
+
+
+        <form action="" method="post" enctype="multipart/form-data" novalidate>
+            {% csrf_token %}
+            {% for fm in form1 %}
+                <div class="form-group col-sm-12 p-2">
+                    {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
+                </div>
+            {% endfor %}
+            {% for fm in form2 %}
+                <div class="form-group col-sm-12 p-2">
+                    {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
+                </div>
+            {% endfor %}
+            <div class="d-grid gap-2">
+                <input type="submit" value="Submit" class="mt-4 px-3 btn btn-primary">
+            </div>
+
+            <div class="mt-4 px-3 text-center">
+                <p class="mb-0">Already have an account? <a href="{% url 'login_volunteer' %}" class="text-white-50 fw-bold">Login</a></p>
+              </div>
+
+              {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
+                    <p class="alert alert-danger my-3">{{error}}</p>
+                {% endfor %}
+            {% endif %}
+        </form>
+
+        {% if message %}
+            {% for message in messages %}
+                <p {% if message.tags %} class="alert alert-{{message.tags}} my-5" {% endif %}>{{message}}</p>
+            {% endfor %}
+        {% endif %}
+
+
+        
+
+
+    
+    
+  </div>
+  </div>
+  </div>
+</div>
+</section>
+{% endblock main %}

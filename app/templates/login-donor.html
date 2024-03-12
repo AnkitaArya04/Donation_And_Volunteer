@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+<section class="vh-100 gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+
+            <div class="mb-md-5 mt-md-4 pb-5">
+
+              <h2 class="fw-bold mb-2 text-uppercase">Donor Login</h2>
+              <p class="text-white-50 mb-5">Please enter your login and password!</p>
+              
+              <form action="" method="post" novalidate>
+                {% csrf_token %}
+                {% for fm in form %}
+                  <div class="form-group col-sm-12 p-3">
+                    {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
+                  </div>
+                {% endfor %}
+              
+                <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
+
+                <input type="submit" value="Login" class="btn btn-outline-light btn-lg px-5" />
+              </form>
+            </div>
+
+            <div>
+              <p class="mb-0">Don't have an account? <a href="{% url 'signup_donor' %}" class="text-white-50 fw-bold">Sign Up</a></p>
+            </div>
+
+          </div>
+        </div>
+        {% if form.non_field_errors %}
+          {% for error in form.non_field_errors %}
+            <p class="alert alert-danger my-3">{{error}}</p>
+          {% endfor %}
+        {% endif %}
+
+        {% if messages %}
+          {% for message in messages %}
+            <h3 {% if message.tags %} class="text-center alert alert-{{message.tags}} my-5" {% endif %}>
+              {{message}}
+            </h3>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock main %}

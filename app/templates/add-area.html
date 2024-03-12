@@ -1,0 +1,33 @@
+{% extends 'base-db-admin.html' %}
+{% load static %}
+{% block main %}
+<div class="container mt-5 vh-100 table-responsive">
+    <h3>Add Area</h3>
+    <hr>
+    <div class="row">
+      <form action="" method="post" novalidate>
+        {% csrf_token %}
+        {% for fm in form %}
+             <div class="form-group col-sm-12 p-3">
+                   {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
+             </div>
+        {% endfor %}
+        <div class="d-grid gap-2">
+            <input type="submit" value="Submit" class="mt-4 px-3 btn btn-primary">
+        </div>
+      </form>
+  
+   
+    {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+             <p class="alert alert-danger my-3">{{error}}</p>
+        {% endfor %}
+    {% endif %}
+    {% if messages %}
+        {% for message in messages %}
+            <h3 {% if message.tags %} class="text-center alert alert-{{message.tags}} my-5" {% endif %}>{{message}}</h3>
+        {% endfor %}
+    {% endif %}
+    </div>
+</div>
+{% endblock main %}

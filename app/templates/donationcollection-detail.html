@@ -1,0 +1,97 @@
+{% extends 'base-db-volunteer.html' %}
+{% load static %}
+{% block main %}
+<div class="container mt-5 vh-100 table-responsive">
+  <h3>View Accepted Donation Detail</h3>
+  <hr>
+  <table id="mytable" class="table data ">
+      <tbody>
+          <tr class="align-middle text-center" >
+              <th colspan="4"><h3>Donor Details</h3></th>
+          </tr>
+          <tr class="align-middle text-center">
+            <td><h5>Donor Name</h5></td>
+            <td><h5 class="text-secondary">Nilesh Borate</h5></td>
+            <td><h5>Donor Contact</h5></td>
+            <td><h5 class="text-secondary">9000000000</h5></td>
+        </tr>
+          <tr class="align-middle text-center">
+              <td><h5>Email</h5></td>
+              <td><h5 class="text-secondary">nilesh@gmail.com</h5></td>
+              <td><h5>Donor Pic</h5></td>
+              <td><img src="{% static 'images/cloth-donation.jfif' %}" width="80" height="80" /></td>
+          </tr>
+        <tr class="align-middle text-center">
+              <th colspan="4"><h3>Donation Details</h3></th>
+          </tr>
+          <tr class="align-middle text-center">
+              <td ><h5 >Donation Name</h5></td>
+              <td><h5 class="text-secondary">Other</h5></td>
+              <td><h5>Donation Pic</h5></td>
+              <td><img src="{% static 'images/cloth-donation.jfif' %}" width="80" height="80" /></td>
+          </tr>
+          <tr class="align-middle text-center">
+              <td><h5 >Collection Location</h5></td>
+              <td><h5 class="text-secondary">Bhosari Pune</h5></td>
+              <td><h5 >Donation Date</h5></td>
+              <td><h5 class="text-secondary">20/02/2022</h5></td>
+          </tr>
+          <tr class="align-middle text-center">
+              <td><h5 >Status</h5></td>
+              <td>
+                <span class="text-center bg-danger font-weight-bold text-light text-light py-2 rounded-pill px-5"> Accept</span>
+              </td>
+              <td><h5 >Updation Date</h5></td>
+              <td><h5 class="text-secondary">20/02/2022</h5></td>
+              
+          </tr>
+          <tr class="align-middle text-center">
+              <td><h5 >Admin Remark</h5></td>
+              <td colspan="3">
+                <h5 class="text-secondary">pending</h5>
+              </td>
+          </tr>
+          
+        <tr class="align-middle text-center">
+          <td><h5 >Donation Area</h5></td>
+          <td colspan="3"> <h5 class="text-secondary">Bhosari</h5></td>
+        </tr>
+
+        <tr class="align-middle text-center">
+          <td><h5 >Volunteer</h5></td>
+          <td colspan="3"> <h5 class="text-secondary">ABC</h5></td>
+        </tr>
+
+        <tr class="align-middle text-center">
+          <td><h5 >Donation Received ?</h5></td>
+          <td colspan="3">
+            <h5 class="text-secondary">
+              <input type="radio" name="status" value="Donation Received" required> Donation Received
+              <input type="radio" name="status" value="Donation NotReceived" required> Donation Not Received
+            </h5>
+          </td>
+      </tr>
+
+          <tr class="align-middle text-center">
+            <td><h5 >Volunteer Remark</h5></td>
+            <td colspan="3"> 
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </td>
+        </tr>
+        <tr class="align-middle text-center">
+          <td></td>
+          <td colspan="3">
+              <button type="button" class="btn btn-primary px-5">Submit</button>
+          </td>
+      </tr>
+      <tr class="align-middle text-center">
+        <td><h5 >Volunteer Remark</h5></td>
+        <td colspan="3">
+          <h5 class="text-secondary">Not Updated Yet</h5>
+        </td>
+      </tr>
+          
+      </tbody>
+  </table>
+</div>
+{% endblock main %}
